@@ -1,3 +1,134 @@
+/* Poppins (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Zuume es una fuente comercial (no está en Google Fonts). Cuando tengas
+   los archivos (woff2), colócalos en /public/fonts y descomenta esto:
+@font-face {
+  font-family: 'Zuume';
+  src: url('/fonts/Zuume-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+   Mientras tanto, .text-h2 cae al fallback (Poppins). */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ──────────────────────────────────────────────────────────────
+   TYPOGRAPHY — 1:1 con los Text Styles de Figma.
+   Mobile-first: el tamaño base es mobile; en lg: pasa a desktop.
+   Uso en JSX: <h1 className="text-h1">…</h1>
+   ────────────────────────────────────────────────────────────── */
+@layer components {
+  .text-h1 {
+    @apply font-poppins font-bold; /* 700 */
+    font-size: 32px;
+    line-height: 1.2; /* 120% */
+  }
+  .text-h2 {
+    @apply font-zuume font-bold; /* 700 */
+    font-size: 44px;
+    line-height: 1.2;
+    letter-spacing: 0.02em; /* 2% */
+  }
+  .text-h3 {
+    @apply font-poppins font-semibold; /* 600 */
+    font-size: 24px;
+    line-height: 1.2;
+  }
+  .text-h4 {
+    @apply font-poppins font-semibold; /* 600 */
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .text-h5 {
+    @apply font-poppins font-medium; /* 500 */
+    font-size: 18px;
+    line-height: 1.5; /* 150% */
+  }
+  .text-h6 {
+    @apply font-poppins font-medium; /* 500 en mobile */
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .text-h7 {
+    @apply font-poppins font-semibold; /* 600 */
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .text-tag-label {
+    @apply font-poppins font-medium; /* 500 */
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  .text-p-xl {
+    @apply font-poppins font-normal; /* 400 */
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .text-p-lg {
+    @apply font-poppins font-normal;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .text-p-md {
+    @apply font-poppins font-normal;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .text-p-sm {
+    @apply font-poppins font-normal;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .text-p-xs {
+    @apply font-poppins font-normal;
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  /* Overrides desktop (≥1024px) */
+  @media (min-width: 1024px) {
+    .text-h1 {
+      font-size: 52px;
+    }
+    .text-h2 {
+      font-size: 56px;
+    }
+    .text-h3 {
+      font-size: 30px;
+    }
+    .text-h4 {
+      font-size: 24px;
+    }
+    .text-h5 {
+      font-size: 22px;
+    }
+    .text-h6 {
+      font-size: 18px;
+      font-weight: 600; /* en desktop sube a semibold */
+    }
+    .text-h7 {
+      font-size: 16px;
+    }
+    .text-tag-label {
+      font-size: 12px;
+    }
+    .text-p-xl {
+      font-size: 20px;
+    }
+    .text-p-lg {
+      font-size: 16px;
+    }
+    .text-p-md {
+      font-size: 16px;
+    }
+    .text-p-sm {
+      font-size: 13px;
+    }
+    .text-p-xs {
+      font-size: 11px;
+    }
+  }
+}
