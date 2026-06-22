@@ -86,6 +86,15 @@
     line-height: 1.5;
   }
 
+  /* Button (text style "mobile/Button" · "web/Button").
+     Aproximado: uppercase semibold. Si tenés el size exacto, lo ajusto. */
+  .text-button {
+    @apply font-poppins font-semibold uppercase;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0.04em;
+  }
+
   /* Overrides desktop (≥1024px) */
   @media (min-width: 1024px) {
     .text-h1 {
@@ -127,6 +136,9 @@
     }
     .text-p-xs {
       font-size: 11px;
+    }
+    .text-button {
+      font-size: 16px;
     }
   }
 }

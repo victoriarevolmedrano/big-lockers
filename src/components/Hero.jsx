@@ -21,21 +21,25 @@ const ArrowDown = () => (
 function Hero() {
   return (
     <section className="relative flex min-h-[100dvh] flex-col overflow-hidden bg-neutral-darkest">
-      {/* Foto de fondo. 👉 Colocá la imagen en /public/images/hero-bg.jpg */}
-      <img
-        src="/images/hero-bg.jpg"
-        alt=""
-        className="absolute inset-0 h-full w-full object-cover"
-        aria-hidden="true"
-      />
-      {/* Overlay para legibilidad del texto */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+      {/* Foto de fondo (distinta en mobile y web).
+          👉 Colocá los archivos en /public/images/ */}
+      <picture className="absolute inset-0 -z-0">
+        <source media="(min-width: 1024px)" srcSet="/images/hero-bg-web.jpg" />
+        <img
+          src="/images/hero-bg-mobile.jpg"
+          alt=""
+          className="h-full w-full object-cover"
+          aria-hidden="true"
+        />
+      </picture>
+      {/* Overlay suave (las fotos ya vienen oscurecidas) */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/15 to-transparent" />
 
       <Navbar />
 
       {/* Contenido del hero */}
       <div className="relative z-10 mx-auto flex w-full max-w-[1200px] flex-1 flex-col justify-end px-2xl pb-3xl lg:pb-5xl">
-        <p className="text-h7 uppercase tracking-wider text-white/90">
+        <p className="text-h6 uppercase tracking-wider text-white">
           Big Lockers · Una extensión de tus espacios
         </p>
 
@@ -43,16 +47,16 @@ function Hero() {
           Alquiler de bauleras en Córdoba
         </h1>
 
-        <p className="text-p-xl mt-md text-white/80">
+        <p className="text-h5 mt-md text-white/90">
           Desde $120.000/mes · Acceso 24/7 · Sin garantía
         </p>
 
-        {/* Pills: columna en mobile, fila en web */}
+        {/* Pills: columna en mobile, fila en web. Fondo beige 20% */}
         <ul className="mt-xl flex flex-col gap-sm lg:flex-row lg:flex-wrap">
           {features.map((f) => (
             <li
               key={f.label}
-              className="text-p-md inline-flex w-fit items-center gap-xs rounded-full border border-white/20 bg-black/40 px-lg py-sm font-medium text-white backdrop-blur-sm"
+              className="text-h6 inline-flex w-fit items-center gap-xs rounded-full bg-surface/20 px-lg py-sm text-surface-lightest backdrop-blur-sm"
             >
               <span aria-hidden="true">{f.icon}</span>
               {f.label}
@@ -60,18 +64,19 @@ function Hero() {
           ))}
         </ul>
 
-        {/* Botones: full-width apilados en mobile, en fila en web */}
+        {/* Botones. WhatsApp: fill #0A8F4D, web 278px. Outline: borde beige/dark.
+            Texto: beige/main. Gap interno: sm (12px). Alto: 48px (web) */}
         <div className="mt-2xl flex flex-col gap-md lg:flex-row">
           <a
             href="#reservar"
-            className="text-h7 inline-flex items-center justify-center gap-sm rounded-full bg-secondary-dark px-2xl py-lg uppercase tracking-wide text-white transition hover:brightness-110 lg:w-auto"
+            className="text-button inline-flex h-14 items-center justify-center gap-sm rounded-full bg-secondary-dark px-2xl text-surface transition hover:brightness-110 lg:h-12 lg:w-[278px]"
           >
             Reservar por WhatsApp
             <ArrowRight />
           </a>
           <a
             href="#precios"
-            className="text-h7 inline-flex items-center justify-center gap-sm rounded-full border border-white/60 px-2xl py-lg uppercase tracking-wide text-white transition hover:bg-white/10 lg:w-auto"
+            className="text-button inline-flex h-14 items-center justify-center gap-sm rounded-full border border-surface-dark px-2xl text-surface transition hover:bg-white/10 lg:h-12 lg:w-auto"
           >
             Ver tamaños y precios
             <ArrowDown />

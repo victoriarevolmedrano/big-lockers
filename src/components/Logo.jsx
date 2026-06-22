@@ -1,20 +1,44 @@
-// Logo Big Lockers (placeholder con el contorno hexagonal del diseño).
-// Hereda el color del padre vía `currentColor`, así sirve en blanco (sobre
-// la foto) y en verde (sobre la navbar clara).
-// 👉 Cuando exportes el SVG real desde Figma (Dev Mode → Export → SVG),
-//    reemplazá el contenido por el <svg> o <img src="/images/logo.svg" />.
+// Logo Big Lockers — hexágono recreado en SVG (aprox. al de Figma).
+// Hereda el color del padre vía `currentColor`. El tamaño lo controla
+// el `className` (ancho/alto).
+// 👉 Si subís el logo.svg oficial, reemplazá este SVG por
+//    <img src="/images/logo.svg" className={className} alt="Big Lockers" />.
 function Logo({ className = '' }) {
   return (
-    <span
-      className={`flex items-center justify-center rounded-md border-2 text-center leading-none ${className}`}
-      style={{ width: 67, height: 64 }}
+    <svg
+      viewBox="0 0 100 96"
+      fill="none"
+      className={className}
+      role="img"
+      aria-label="Big Lockers"
     >
-      <span className="text-[11px] font-extrabold tracking-tight">
+      <polygon
+        points="50,3 94,26 94,70 50,93 6,70 6,26"
+        stroke="currentColor"
+        strokeWidth="6"
+        strokeLinejoin="round"
+      />
+      <text
+        x="50"
+        y="56"
+        textAnchor="middle"
+        fill="currentColor"
+        className="font-zuume"
+        style={{ fontSize: 28, fontWeight: 700, letterSpacing: '0.02em' }}
+      >
         BIG
-        <br />
+      </text>
+      <text
+        x="50"
+        y="76"
+        textAnchor="middle"
+        fill="currentColor"
+        className="font-zuume"
+        style={{ fontSize: 15, fontWeight: 700, letterSpacing: '0.04em' }}
+      >
         LOCKERS
-      </span>
-    </span>
+      </text>
+    </svg>
   )
 }
 

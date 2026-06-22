@@ -8,8 +8,8 @@ function Navbar() {
     <header className="absolute inset-x-0 top-0 z-20">
       {/* ─── MOBILE: logo + hamburguesa sobre la foto ─── */}
       <nav className="flex h-[90px] items-center justify-between px-2xl lg:hidden">
-        <a href="#" aria-label="Big Lockers — inicio" className="text-white">
-          <Logo />
+        <a href="#" aria-label="Big Lockers — inicio">
+          <Logo className="h-16 w-[67px] text-surface-lightest" />
         </a>
         <button
           type="button"
@@ -22,16 +22,16 @@ function Navbar() {
         </button>
       </nav>
 
-      {/* ─── WEB: barra flotante clara (pill) ─── */}
+      {/* ─── WEB: barra flotante glass (white 30% + blur) ─── */}
       <div className="mx-auto hidden max-w-[1200px] px-2xl pt-xl lg:block">
-        <nav className="flex items-center justify-between rounded-full bg-surface-lightest/85 px-xs py-xs pl-lg shadow-md backdrop-blur">
+        <nav className="flex items-center justify-between rounded-full border border-white/40 bg-white/30 px-xs py-xs pl-lg shadow-lg backdrop-blur-xl">
           <div className="flex items-center gap-lg">
-            <a href="#" aria-label="Big Lockers — inicio" className="text-primary">
-              <Logo className="!h-10 !w-10 border-primary" />
+            <a href="#" aria-label="Big Lockers — inicio">
+              <Logo className="h-10 w-[42px] text-neutral-darker" />
             </a>
 
             {/* Toggle de marcas */}
-            <div className="flex items-center gap-2xs rounded-full p-2xs">
+            <div className="flex items-center gap-2xs">
               {brands.map((brand, i) => (
                 <button
                   key={brand}
@@ -57,7 +57,7 @@ function Navbar() {
             </a>
             <a
               href="#reservar"
-              className="text-h7 rounded-full bg-primary px-xl py-md uppercase tracking-wide text-white transition hover:bg-primary-dark"
+              className="text-button rounded-full bg-primary px-xl py-md text-surface hover:bg-primary-dark"
             >
               Reservar ahora
             </a>
