@@ -1,15 +1,13 @@
 /* Poppins (Google Fonts) */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-/* Zuume es una fuente comercial (no está en Google Fonts). Cuando tengas
-   los archivos (woff2), colócalos en /public/fonts y descomenta esto:
+/* Zuume Bold (fuente comercial, archivo local en /public/fonts) */
 @font-face {
   font-family: 'Zuume';
   src: url('/fonts/Zuume-Bold.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
 }
-   Mientras tanto, .text-h2 cae al fallback (Poppins). */
 
 @tailwind base;
 @tailwind components;
