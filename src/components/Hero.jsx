@@ -24,9 +24,9 @@ function Hero() {
       {/* Foto de fondo (distinta en mobile y web).
           👉 Colocá los archivos en /public/images/ */}
       <picture className="absolute inset-0 -z-0">
-        <source media="(min-width: 1024px)" srcSet="/images/hero-bg-web.jpg" />
+        <source media="(min-width: 1024px)" srcSet={`${import.meta.env.BASE_URL}images/hero-bg-web.jpg`} />
         <img
-          src="/images/hero-bg-mobile.jpg"
+          src={`${import.meta.env.BASE_URL}images/hero-bg-mobile.jpg`}
           alt=""
           className="h-full w-full object-cover"
           aria-hidden="true"
